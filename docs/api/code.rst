@@ -9,6 +9,3 @@ This page regroup the differents modules of ``code`` package.
 
    my_little_poney.datasets
    my_little_poney.models
-
-
-   

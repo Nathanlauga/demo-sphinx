@@ -30,7 +30,6 @@ author = 'Nathan LAUGA'
 # The full version, including alpha/beta/rc tags
 release = '0.1'
 
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -41,35 +40,32 @@ extensions = [
     # automated documentation
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
-    
-    # 
-    'sphinx.ext.autosectionlabel',
-    
+
     # link code and Documentatoon
     'sphinx.ext.viewcode',
-    
+
     # Print LaTeX string
     'sphinx.ext.mathjax',
-    
+
     # Handle numpy, google and rst docstring format
     'sphinx.ext.napoleon',
-    
-    #
+
+    # Generate automatic links to the documentation of objects
     'sphinx.ext.intersphinx',
-    
+
     # ==== EXTERNAL EXT ==== #
-    # Read The Docs template 
+    # Read The Docs template
     "sphinx_rtd_theme",
-    
+
     # Handle Numpy docstring
     'numpydoc',
-    
+
     # Example Gallery
-    # 'sphinx_gallery.gen_gallery',
-    
+    'sphinx_gallery.gen_gallery',
+
     # Handle notebook as page
     'nbsphinx',
-    
+
     # Handle Markdown as page
     'recommonmark',
 ]
@@ -82,14 +78,12 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-
 # The suffix of source filenames.
 source_suffix = {
     '.rst': 'restructuredtext',
     '.txt': 'markdown',
     '.md': 'markdown',
 }
-
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -103,7 +97,6 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -120,31 +113,24 @@ html_favicon = '_static/favicon.ico'
 # If false, no index is generated.
 # html_use_index = False
 
-
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
-
 
 # -- Native extensions conf --------------------------------------------------
 
 # -- sphinx.ext.autodoc -----
 # For each autodocumentated code add this default options
-autodoc_default_options = {
-    'members': True, 
-    'inherited-members': True
-}
-
+autodoc_default_options = {'members': True, 'inherited-members': True}
 
 # -- sphinx.ext.autosummary -----
 # Allows autosummary generation
 autosummary_generate = True
 autosummary_imported_members = True
 
-
 # -- External extensions conf ------------------------------------------------
 
 # -- numpydoc -----
-# Whether to create a Sphinx table of contents for the lists of class methods and attributes. 
+# Whether to create a Sphinx table of contents for the lists of class methods and attributes.
 # If a table of contents is made, Sphinx expects each entry to have a separate page.
 numpydoc_class_members_toctree = False
 
@@ -153,9 +139,23 @@ source_parsers = {
     '.md': CommonMarkParser,
 }
 
-
 # the notebook files are converted to rst.
-# process_examples = True
+process_examples = True
+
+# Config sphinx gallery
+sphinx_gallery_conf = {
+    'doc_module': 'my_little_poney',
+    'backreferences_dir': os.path.join('api', 'generated'),
+    'reference_url': {
+        'my_little_poney': None
+    },
+    'examples_dirs': ['../examples'],
+    'gallery_dirs': ['auto_examples'],
+    'default_thumb_file': '_static/img/no_image.png',
+    'filename_pattern': '',
+    'ignore_pattern': 'utils.py',
+    'pypandoc': True,
+}
 
 
 
