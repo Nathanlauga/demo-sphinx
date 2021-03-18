@@ -162,6 +162,6 @@ dmypy.json
 
 dev/*
 docs/auto_examples/*
-docs/modules/generated/*
+docs/api/generated/*
 *.pkl
 *.sav.gz

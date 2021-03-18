@@ -157,9 +157,6 @@ sphinx_gallery_conf = {
     'pypandoc': True,
 }
 
-
-
-
 # -- Warnings -----------------------------------------------------------------
 # Ignore some warnings
 warnings.filterwarnings("ignore",
