@@ -19,7 +19,6 @@ import re
 from recommonmark.parser import CommonMarkParser
 
 sys.path.insert(0, os.path.abspath('sphinxext'))
-import sphinx_gallery
 
 # -- Project information -----------------------------------------------------
 
@@ -50,18 +49,12 @@ extensions = [
     # Handle numpy, google and rst docstring format
     'sphinx.ext.napoleon',
 
-    # Generate automatic links to the documentation of objects
-    'sphinx.ext.intersphinx',
-
     # ==== EXTERNAL EXT ==== #
     # Read The Docs template
     "sphinx_rtd_theme",
 
     # Handle Numpy docstring
     'numpydoc',
-
-    # Example Gallery
-    'sphinx_gallery.gen_gallery',
 
     # Handle notebook as page
     'nbsphinx',
@@ -100,8 +93,8 @@ html_static_path = ['_static']
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = '_static/logo_communaute.png'
-html_favicon = '_static/favicon.ico'
+# html_logo = '_static/logo_communaute.png'
+# html_favicon = '_static/favicon.ico'
 
 # === CUSTOM INDEX ===
 # Additional templates that should be rendered to pages, maps page names to
@@ -137,24 +130,6 @@ numpydoc_class_members_toctree = False
 # -- recommark -----
 source_parsers = {
     '.md': CommonMarkParser,
-}
-
-# the notebook files are converted to rst.
-process_examples = True
-
-# Config sphinx gallery
-sphinx_gallery_conf = {
-    'doc_module': 'my_little_poney',
-    'backreferences_dir': os.path.join('api', 'generated'),
-    'reference_url': {
-        'my_little_poney': None
-    },
-    'examples_dirs': ['../examples'],
-    'gallery_dirs': ['auto_examples'],
-    'default_thumb_file': '_static/img/no_image.png',
-    'filename_pattern': '',
-    'ignore_pattern': 'utils.py',
-    'pypandoc': True,
 }
 
 # -- Warnings -----------------------------------------------------------------
